@@ -1,0 +1,21 @@
+# Global code owners
+* @JoaoSantosCodes
+
+# Core application files
+/aurantis_sync_mvp.py @JoaoSantosCodes
+/app/ @JoaoSantosCodes
+
+# Configuration files
+/requirements.txt @JoaoSantosCodes
+/pyproject.toml @JoaoSantosCodes
+/config.py @JoaoSantosCodes
+
+# Documentation
+/README.md @JoaoSantosCodes
+/QUICKSTART.md @JoaoSantosCodes
+/CHANGELOG.md @JoaoSantosCodes
+
+# Build and deployment
+/build_advanced.py @JoaoSantosCodes
+/AurantisSync.spec @JoaoSantosCodes
+/.github/ @JoaoSantosCodes

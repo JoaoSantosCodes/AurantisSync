@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aurantis-sync"
+version = "1.0.0"
+description = "Aplicativo desktop para transcrição e sincronização de letras de músicas"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+    {name = "AurantisSync Team"}
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Sound/Audio",
+    "Topic :: Multimedia :: Video",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "PySide6>=6.5.0",
+    "faster-whisper>=0.9.0",
+    "librosa>=0.10.1",
+    "matplotlib>=3.7.0",
+    "numpy>=1.24.0",
+    "soundfile>=0.12.1",
+    "scipy>=1.10.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=22.0.0",
+    "flake8>=5.0.0",
+    "mypy>=1.0.0",
+]
+build = [
+    "pyinstaller>=5.13.0",
+]
+
+[project.scripts]
+aurantis-sync = "aurantis_sync_mvp:main"
+
+[project.urls]
+Homepage = "https://github.com/aurantis-sync/aurantis-sync"
+Repository = "https://github.com/aurantis-sync/aurantis-sync"
+Issues = "https://github.com/aurantis-sync/aurantis-sync/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
