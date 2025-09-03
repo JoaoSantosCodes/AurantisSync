@@ -159,3 +159,7 @@ tmp/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Project specific
+AurantisSync_Portable/
+*.aurantisproj

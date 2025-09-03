@@ -17,43 +17,76 @@
 - 📤 **Exportação múltipla** (TXT, SRT, LRC, VTT, JSON)
 - 🖥️ **Interface moderna** com PySide6
 
-## 🚀 Instalação
+## 🚀 Instalação Rápida
 
-### Pré-requisitos
-- Python 3.10+
-- FFmpeg instalado e no PATH
+### Windows (PowerShell)
+```powershell
+# Clone o repositório
+git clone https://github.com/JoaoSantosCodes/AurantisSync.git
+cd AurantisSync
 
-### Instalar dependências
+# Execute o script de setup automático
+.\scripts\Setup-And-Run-AurantisSync.ps1
+```
+
+### Manual
 ```bash
+# Instalar dependências
 pip install -r requirements.txt
-```
 
-### Verificar FFmpeg
-```bash
-ffmpeg -version
-```
-
-## ▶️ Como usar
-
-### Opção 1: MVP Standalone (Recomendado)
-```bash
+# Executar
 python aurantis_sync_mvp.py
 ```
 
-### Opção 2: Duplo clique (Windows)
-- Clique duas vezes em `start_app.bat`
+## 📁 Estrutura do Projeto
 
-### Opção 3: Projeto estruturado
-```bash
-python run_structured_app.bat
+```
+AurantisSync/
+├── README.md                    # 🎯 Visão geral
+├── PROJECT_CONFIG.md            # ⚙️ Configuração
+├── PROJECT_SUMMARY.md           # 📋 Resumo
+├── EXECUTAVEL_GUIA.md           # 🔨 Guia executável
+├── aurantis_sync_mvp.py         # 🎮 App principal (MVP)
+├── build_exe.py                 # 🔨 Script build Python
+├── create_exe.bat               # 🔨 Script build Batch
+├── app/                         # 📦 Projeto estruturado
+│   ├── main.py                 # Ponto de entrada
+│   ├── core/                   # Lógica de negócio
+│   ├── ui/                     # Interface gráfica
+│   └── widgets/                # Componentes
+├── scripts/                     # 🔧 Scripts de automação
+│   ├── Setup-And-Run-AurantisSync.ps1  # Setup automático
+│   ├── Create-Executable.ps1    # Criar executável
+│   ├── test_structure.ps1       # Teste estrutura
+│   └── *.bat                   # Scripts Windows
+├── docs/                        # 📚 Documentação
+│   ├── INDEX.md                # Índice da documentação
+│   ├── README.md               # Documentação completa
+│   ├── QUICKSTART.md           # Guia rápido
+│   ├── POWERSHELL_SETUP.md     # Setup PowerShell
+│   ├── CRIAR_EXECUTAVEL.md     # Guia executável
+│   └── CONTRIBUTING.md         # Como contribuir
+├── examples/                    # 📝 Exemplos
+│   └── example_lines.json      # Arquivo de exemplo
+├── tests/                       # 🧪 Testes
+│   └── test_*.py               # Scripts de teste
+├── requirements.txt             # 📋 Dependências
+└── LICENSE                      # 📄 Licença MIT
 ```
 
-## 🎯 Uso básico
+## 🎯 Como usar
 
-1. **Abrir áudio**: Clique em "Abrir Áudio" e selecione um arquivo
-2. **Transcrever**: Clique em "Transcrever" (escolha idioma e modelo)
-3. **Editar**: Modifique os timestamps e texto na tabela
-4. **Exportar**: Clique em "Exportar Tudo" para gerar todos os formatos
+### 1. **Abrir áudio**
+Clique em "Abrir Áudio" e selecione um arquivo de música
+
+### 2. **Transcrever**
+Clique em "Transcrever" (escolha idioma e modelo)
+
+### 3. **Editar**
+Modifique os timestamps e texto na tabela
+
+### 4. **Exportar**
+Clique em "Exportar Tudo" para gerar todos os formatos
 
 ## 📋 Formatos de exportação
 
@@ -65,32 +98,34 @@ python run_structured_app.bat
 
 ## 🛠️ Build executável
 
+### 🎯 **Criar .exe (3 opções)**
+
+#### **1. PowerShell (Mais Fácil)**
+```powershell
+.\scripts\Create-Executable.ps1
+```
+
+#### **2. Setup Automático**
+```powershell
+.\scripts\Setup-And-Run-AurantisSync.ps1 -BuildExe
+```
+
+#### **3. Manual**
 ```bash
-python build_advanced.py
+# Python
+python build_exe.py
+
+# Batch
+create_exe.bat
+
+# PyInstaller direto
+pyinstaller --noconsole --onefile --name "AurantisSync" aurantis_sync_mvp.py
 ```
 
-## 🧪 Teste
-
-```bash
-python test_mvp.py
-```
-
-## 📁 Estrutura do projeto
-
-```
-AurantisSync/
-├── aurantis_sync_mvp.py      # MVP standalone
-├── app/                      # Projeto estruturado
-│   ├── main.py
-│   ├── core/                 # Lógica de negócio
-│   ├── ui/                   # Interface
-│   └── widgets/              # Componentes
-├── requirements.txt
-├── README.md
-├── start_app.bat
-├── build_exe.bat
-└── example_lines.json
-```
+### 📦 **Resultado**
+- **`dist/AurantisSync.exe`** - Executável principal
+- **`AurantisSync_Portable/`** - Pasta portável completa
+- **Tamanho**: ~200-500 MB (com faster-whisper)
 
 ## 🔧 Tecnologias
 
@@ -102,27 +137,39 @@ AurantisSync/
 - **numpy** - Computação numérica
 - **soundfile** - Leitura de arquivos de áudio
 
+## 📚 Documentação
+
+- **[Guia Completo](docs/README.md)** - Documentação detalhada
+- **[Quick Start](docs/QUICKSTART.md)** - Guia rápido
+- **[Setup PowerShell](docs/POWERSHELL_SETUP.md)** - Setup automático
+- **[Criar Executável](docs/CRIAR_EXECUTAVEL.md)** - Guia para gerar .exe
+- **[Contribuindo](docs/CONTRIBUTING.md)** - Como contribuir
+
+## 🧪 Testes
+
+```bash
+# Testar MVP
+python tests/test_mvp.py
+
+# Testar estrutura do projeto
+.\scripts\test_structure.ps1
+
+# Testar configuração PowerShell
+.\scripts\test_basic.ps1
+```
+
 ## 📄 Licença
 
 Este projeto está licenciado sob a [Licença MIT](LICENSE).
 
 ## 🤝 Contribuição
 
-Contribuições são bem-vindas! Sinta-se à vontade para:
-
-1. Fazer fork do projeto
-2. Criar uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Fazer commit das mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Fazer push para a branch (`git push origin feature/AmazingFeature`)
-5. Abrir um Pull Request
+Contribuições são bem-vindas! Veja [CONTRIBUTING.md](docs/CONTRIBUTING.md) para detalhes.
 
 ## 📞 Suporte
 
-Para problemas ou dúvidas:
-
-- Abra uma [issue](https://github.com/JoaoSantosCodes/AurantisSync/issues)
-- Verifique se o FFmpeg está instalado e no PATH
-- Execute `python test_mvp.py` para diagnosticar problemas
+- **GitHub Issues**: [Reportar problemas](https://github.com/JoaoSantosCodes/AurantisSync/issues)
+- **GitHub Discussions**: [Perguntas e ideias](https://github.com/JoaoSantosCodes/AurantisSync/discussions)
 
 ## 🌟 Agradecimentos
 
