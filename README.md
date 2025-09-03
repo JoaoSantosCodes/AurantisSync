@@ -45,33 +45,57 @@ AurantisSync/
 ├── README.md                    # 🎯 Visão geral
 ├── PROJECT_CONFIG.md            # ⚙️ Configuração
 ├── PROJECT_SUMMARY.md           # 📋 Resumo
-├── EXECUTAVEL_GUIA.md           # 🔨 Guia executável
 ├── aurantis_sync_mvp.py         # 🎮 App principal (MVP)
-├── build_exe.py                 # 🔨 Script build Python
-├── create_exe.bat               # 🔨 Script build Batch
 ├── app/                         # 📦 Projeto estruturado
 │   ├── main.py                 # Ponto de entrada
+│   ├── config.py               # Configurações
 │   ├── core/                   # Lógica de negócio
+│   │   ├── sync_model.py       # Modelos de dados
+│   │   ├── transcriber.py      # Transcrição
+│   │   ├── exporters.py        # Exportação
+│   │   ├── audio_player.py     # Player de áudio
+│   │   ├── waveform.py         # Waveform
+│   │   └── project_io.py       # I/O de projetos
 │   ├── ui/                     # Interface gráfica
+│   │   ├── main_window.py      # Janela principal
+│   │   └── main_window_improved.py  # Janela melhorada
 │   └── widgets/                # Componentes
+│       ├── waveform_widget.py  # Widget de waveform
+│       └── lines_table.py      # Tabela de linhas
 ├── scripts/                     # 🔧 Scripts de automação
 │   ├── Setup-And-Run-AurantisSync.ps1  # Setup automático
 │   ├── Create-Executable.ps1    # Criar executável
-│   ├── test_structure.ps1       # Teste estrutura
-│   └── *.bat                   # Scripts Windows
+│   ├── Upload-To-GitHub.ps1     # Upload para GitHub
+│   ├── upload_final.cmd         # Upload final
+│   ├── fix_git_upload.bat       # Correção Git
+│   ├── build_exe.py             # Build Python
+│   ├── create_exe.bat           # Build Batch
+│   ├── upload_github.py         # Upload Python
+│   └── test_structured_app.py   # Teste estruturado
 ├── docs/                        # 📚 Documentação
 │   ├── INDEX.md                # Índice da documentação
 │   ├── README.md               # Documentação completa
 │   ├── QUICKSTART.md           # Guia rápido
 │   ├── POWERSHELL_SETUP.md     # Setup PowerShell
 │   ├── CRIAR_EXECUTAVEL.md     # Guia executável
+│   ├── SOLUCAO_PROBLEMAS_GIT.md # Solução Git
+│   ├── GIT_PROBLEMA_SOLUCAO.md  # Problemas Git
+│   ├── INSTRUCOES_FINAIS.md     # Instruções finais
+│   ├── ATUALIZACOES_GITHUB.md   # Atualizações GitHub
+│   ├── EXECUTAVEL_GUIA.md       # Guia executável
+│   ├── ARCHITECTURE.md          # Arquitetura
 │   └── CONTRIBUTING.md         # Como contribuir
 ├── examples/                    # 📝 Exemplos
-│   └── example_lines.json      # Arquivo de exemplo
+│   ├── example_lines.json      # Arquivo de exemplo
+│   └── sample_lines.json       # Linhas de exemplo
 ├── tests/                       # 🧪 Testes
-│   └── test_*.py               # Scripts de teste
+│   ├── test_mvp.py             # Teste MVP
+│   ├── test_app.py             # Teste app
+│   └── test_git.py             # Teste Git
 ├── requirements.txt             # 📋 Dependências
-└── LICENSE                      # 📄 Licença MIT
+├── pyproject.toml              # Configuração Python
+├── LICENSE                      # 📄 Licença MIT
+└── .gitignore                   # Arquivos ignorados
 ```
 
 ## 🎯 Como usar
@@ -151,11 +175,17 @@ pyinstaller --noconsole --onefile --name "AurantisSync" aurantis_sync_mvp.py
 # Testar MVP
 python tests/test_mvp.py
 
+# Testar aplicação estruturada
+python scripts/test_structured_app.py
+
 # Testar estrutura do projeto
 .\scripts\test_structure.ps1
 
 # Testar configuração PowerShell
 .\scripts\test_basic.ps1
+
+# Testar Git
+python tests/test_git.py
 ```
 
 ## 📄 Licença

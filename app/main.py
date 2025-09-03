@@ -5,6 +5,9 @@ import sys
 import os
 from pathlib import Path
 
+# Add the project root to the Python path for absolute imports
+sys.path.append(str(Path(__file__).parent.parent))
+
 from PySide6.QtWidgets import QApplication, QMessageBox, QSplashScreen
 from PySide6.QtCore import Qt, QTimer
 from PySide6.QtGui import QPixmap, QFont
